@@ -82,14 +82,64 @@
   }
 
   // ── QUICK INQUIRE PRE-FILL ────────────────────────────────────────────────
-  document.querySelectorAll('[data-prefill]').forEach((btn) => {
-    btn.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-prefill]');
+    if (btn) {
       const targetVal = btn.getAttribute('data-prefill');
       const select = document.getElementById('inq-grade');
       if (select && targetVal) {
         select.value = targetVal;
       }
+    }
+  });
+
+  // ── PRODUCT CATALOGUE INTERACTIVE SIZE CONFIGURATOR ────────────────────────
+  document.querySelectorAll('.product-card').forEach((card) => {
+    const sizePills = card.querySelectorAll('.size-pill-btn');
+    const dynamicOffer = card.querySelector('.dynamic-offer');
+    const dynamicMrp = card.querySelector('.dynamic-mrp');
+    const dynamicSave = card.querySelector('.dynamic-save');
+    const activeName = card.querySelector('.config-active-name');
+    const orderBtn = card.querySelector('.card-order-btn');
+    const orderBtnText = orderBtn ? orderBtn.querySelector('.btn-text') : null;
+
+    sizePills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        sizePills.forEach((p) => {
+          p.classList.remove('is-active');
+          p.removeAttribute('aria-checked');
+        });
+        pill.classList.add('is-active');
+        pill.setAttribute('aria-checked', 'true');
+
+        const mrp = pill.getAttribute('data-mrp');
+        const offer = pill.getAttribute('data-offer');
+        const save = pill.getAttribute('data-save');
+        const label = pill.getAttribute('data-label');
+        const prefill = pill.getAttribute('data-prefill');
+        const grade = pill.getAttribute('data-grade');
+
+        if (dynamicOffer) dynamicOffer.textContent = offer;
+        if (dynamicMrp) dynamicMrp.textContent = `₹${mrp}`;
+        if (dynamicSave) dynamicSave.textContent = `Save ₹${save}`;
+        if (activeName && label) activeName.textContent = label;
+        if (orderBtn && prefill) orderBtn.setAttribute('data-prefill', prefill);
+        if (orderBtnText && label) {
+          orderBtnText.textContent = `Order ${label} (${grade})`;
+        }
+      });
     });
+
+    // Drawer toggle for all 4 sizes comparison
+    const toggleBtn = card.querySelector('.btn-toggle-all-sizes');
+    const drawer = card.querySelector('.all-sizes-drawer');
+    if (toggleBtn && drawer) {
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+        drawer.hidden = isExpanded;
+      });
+    }
   });
 
   // ── INTERACTIVE MAKAHANA POUCH POURING ANIMATION (60FPS CANVAS PHYSICS) ──

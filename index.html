@@ -761,234 +761,394 @@
             <!-- PRODUCT 1: 4+ HANDPICK -->
             <article class="grade-card product-card" data-grade="4+">
               <div class="product-card-media">
+                <div class="product-media-pedestal" aria-hidden="true"></div>
                 <img src="assets/catalog-pack-4plus.jpg" alt="Prishka Annam 4+ Handpick Makhana Premium Golden Kraft Pouch Packaging" class="product-card-img" width="500" height="500" loading="lazy">
                 <span class="product-badge product-badge--value">Everyday Value</span>
-                <span class="product-size-chip">75g • 100g • 250g • 500g</span>
+                <span class="product-origin-chip">🌾 100% Bihar Harvest</span>
               </div>
 
-              <div class="grade-header product-card-header">
-                <span class="grade-badge">Classic Daily Size</span>
-                <h3 class="product-title">4+ Handpick Makhana</h3>
-                <p class="grade-tagline">Ideal for Daily Home Roasting, Kids' Tiffins &amp; Healthy Cooking</p>
-                <div class="product-highlights">
-                  <span>✦ 100% Hand-Picked Bihar Lotus Seeds</span>
-                  <span>✦ Nitrogen-Flushed Zip-Lock Freshness</span>
+              <div class="product-card-body">
+                <div class="product-card-header">
+                  <div class="product-grade-row">
+                    <span class="grade-badge">Classic Daily Size</span>
+                    <span class="product-stars-rating" title="Rated 4.9 out of 5">★★★★★ <small>4.9</small></span>
+                  </div>
+                  <h3 class="product-title">4+ Handpick Makhana</h3>
+                  <p class="grade-tagline">Ideal for Daily Home Roasting, Kids' Tiffins &amp; Wholesome Cooking</p>
                 </div>
-              </div>
 
-              <!-- Pack Price Breakdown Table -->
-              <div class="product-pack-table-wrapper">
-                <div class="pack-table-heading">Choose Pack Size &amp; Pricing</div>
-                <ul class="pack-list" role="list">
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">75g</span>
-                      <small class="pack-desc">Trial &amp; Snacking</small>
+                <!-- Interactive Size Selector -->
+                <div class="product-size-configurator">
+                  <div class="size-config-heading">
+                    <span class="config-label">Select Pack Size:</span>
+                    <span class="config-active-name" id="active-name-4plus">250g Family Pack</span>
+                  </div>
+                  <div class="size-selector-pills" role="radiogroup" aria-label="Select 4+ Pack Size">
+                    <button type="button" class="size-pill-btn" data-grade="4+" data-size="75g" data-label="75g Trial Pack" data-mrp="182" data-offer="169" data-save="13" data-prefill="4+ 75g">
+                      <span class="pill-weight">75g</span>
+                      <span class="pill-type">Trial</span>
+                    </button>
+                    <button type="button" class="size-pill-btn" data-grade="4+" data-size="100g" data-label="100g Standard" data-mrp="234" data-offer="220" data-save="14" data-prefill="4+ 100g">
+                      <span class="pill-weight">100g</span>
+                      <span class="pill-type">Standard</span>
+                    </button>
+                    <button type="button" class="size-pill-btn is-active" data-grade="4+" data-size="250g" data-label="250g Family Pack" data-mrp="559" data-offer="519" data-save="40" data-prefill="4+ 250g" aria-checked="true">
+                      <span class="pill-tag-rec">Best Seller</span>
+                      <span class="pill-weight">250g</span>
+                      <span class="pill-type">Family</span>
+                    </button>
+                    <button type="button" class="size-pill-btn" data-grade="4+" data-size="500g" data-label="500g Family Saver" data-mrp="1092" data-offer="1013" data-save="79" data-prefill="4+ 500g">
+                      <span class="pill-weight">500g</span>
+                      <span class="pill-type">Saver</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Hero Price Display Block -->
+                <div class="product-hero-price-box">
+                  <div class="hero-price-row">
+                    <div class="hero-price-val">
+                      <span class="currency-symbol">₹</span>
+                      <span class="price-offer dynamic-offer">519</span>
+                      <span class="price-mrp dynamic-mrp">₹559</span>
                     </div>
-                    <div class="pack-price" data-mrp="182" data-offer="169" data-save="13">
-                      <span class="price-mrp">₹182</span>
-                      <span class="price-offer">₹169</span>
-                      <span class="price-save">Save ₹13</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="4+ 75g" aria-label="Inquire 4+ 75g">Select</a>
-                  </li>
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">100g</span>
-                      <small class="pack-desc">Standard Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="234" data-offer="220" data-save="14">
-                      <span class="price-mrp">₹234</span>
-                      <span class="price-offer">₹220</span>
-                      <span class="price-save">Save ₹14</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="4+ 100g" aria-label="Inquire 4+ 100g">Select</a>
-                  </li>
-                  <li class="pack-item pack-item--recommended">
-                    <div class="pack-meta">
-                      <span class="pack-size">250g <span class="tag-rec">Best Seller</span></span>
-                      <small class="pack-desc">Family Pouch</small>
-                    </div>
-                    <div class="pack-price" data-mrp="559" data-offer="519" data-save="40">
-                      <span class="price-mrp">₹559</span>
-                      <span class="price-offer">₹519</span>
-                      <span class="price-save">Save ₹40</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire btn-pack-inquire--rec" data-prefill="4+ 250g" aria-label="Inquire 4+ 250g">Select</a>
-                  </li>
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">500g</span>
-                      <small class="pack-desc">Family Saver Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="1092" data-offer="1013" data-save="79">
-                      <span class="price-mrp">₹1,092</span>
-                      <span class="price-offer">₹1,013</span>
-                      <span class="price-save">Save ₹79</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="4+ 500g" aria-label="Inquire 4+ 500g">Select</a>
-                  </li>
+                    <span class="price-save-pill dynamic-save">Save ₹40</span>
+                  </div>
+                  <span class="price-subnote">Inclusive of taxes • Nitrogen-flushed barrier pouch</span>
+                </div>
+
+                <!-- Trust Bullets -->
+                <ul class="product-highlights-list" role="list">
+                  <li><span aria-hidden="true">✦</span> 100% Hand-Picked Lotus Seeds from Mithila</li>
+                  <li><span aria-hidden="true">✦</span> Zero Chemical Bleach &bull; Bite-Safe Soft Crunch</li>
+                  <li><span aria-hidden="true">✦</span> Resealable Stand-Up Golden Zip Pouch</li>
                 </ul>
-              </div>
 
-              <div class="grade-card-footer product-card-footer">
-                <a href="#inquiry" class="btn btn-secondary btn-full" data-prefill="4+ 250g">Order 4+ Handpick (250g)</a>
+                <!-- Primary CTA -->
+                <div class="product-card-actions">
+                  <a href="#inquiry" class="btn btn-primary btn-full card-order-btn" data-prefill="4+ 250g">
+                    <span class="btn-text">Order 250g Family Pack</span>
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                  </a>
+                  <button type="button" class="btn-toggle-all-sizes" aria-expanded="false" aria-controls="sizes-list-4plus">
+                    <span>Compare all 4 pack sizes</span>
+                    <span class="toggle-icon" aria-hidden="true">▾</span>
+                  </button>
+                </div>
+
+                <!-- Expandable All-Sizes Comparison Grid -->
+                <div class="all-sizes-drawer" id="sizes-list-4plus" hidden>
+                  <div class="sizes-drawer-table">
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>75g</strong> <small>Trial Pack</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="182" data-offer="169">
+                        <span class="price-mrp">₹182</span>
+                        <span class="price-offer">₹169</span>
+                        <span class="price-save">Save ₹13</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="4+ 75g">Select</a>
+                    </div>
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>100g</strong> <small>Standard</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="234" data-offer="220">
+                        <span class="price-mrp">₹234</span>
+                        <span class="price-offer">₹220</span>
+                        <span class="price-save">Save ₹14</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="4+ 100g">Select</a>
+                    </div>
+                    <div class="drawer-row drawer-row--rec">
+                      <div class="drawer-col-size">
+                        <strong>250g</strong> <small class="text-rec">Best Seller Family</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="559" data-offer="519">
+                        <span class="price-mrp">₹559</span>
+                        <span class="price-offer">₹519</span>
+                        <span class="price-save">Save ₹40</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn drawer-select-btn--rec" data-prefill="4+ 250g">Select</a>
+                    </div>
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>500g</strong> <small>Family Saver</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="1092" data-offer="1013">
+                        <span class="price-mrp">₹1,092</span>
+                        <span class="price-offer">₹1,013</span>
+                        <span class="price-save">Save ₹79</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="4+ 500g">Select</a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </article>
 
             <!-- PRODUCT 2: 5+ HANDPICK (FEATURED) -->
             <article class="grade-card product-card grade-card--featured" data-grade="5+">
+              <div class="product-ribbon-badge" aria-hidden="true">✦ Most Popular Choice ✦</div>
               <div class="product-card-media">
+                <div class="product-media-pedestal" aria-hidden="true"></div>
                 <img src="assets/catalog-pack-5plus.jpg" alt="Prishka Annam 5+ Handpick Large Crunch Makhana Packaging Net Wt 250g / 500g" class="product-card-img" width="500" height="500" loading="lazy">
                 <span class="product-badge product-badge--popular">Most Popular ★</span>
-                <span class="product-size-chip">75g • 100g • 250g • 500g</span>
+                <span class="product-origin-chip">🌾 100% Bihar Harvest</span>
               </div>
 
-              <div class="grade-header product-card-header">
-                <span class="grade-badge">Large Crunch</span>
-                <h3 class="product-title">5+ Handpick Makhana</h3>
-                <p class="grade-tagline">Bold Crunch &amp; Big Puffs — Perfect for Evening Chai, Kids &amp; Guests</p>
-                <div class="product-highlights">
-                  <span>✦ Extra Crisp Extra Plump Lotus Seeds</span>
-                  <span>✦ Premium Resealable Golden Stand-Up Pouch</span>
+              <div class="product-card-body">
+                <div class="product-card-header">
+                  <div class="product-grade-row">
+                    <span class="grade-badge">Large Crunch</span>
+                    <span class="product-stars-rating" title="Rated 5 out of 5">★★★★★ <small>5.0</small></span>
+                  </div>
+                  <h3 class="product-title">5+ Handpick Makhana</h3>
+                  <p class="grade-tagline">Bold Crunch &amp; Big Puffs — Perfect for Evening Chai, Kids &amp; Guests</p>
                 </div>
-              </div>
 
-              <!-- Pack Price Breakdown Table -->
-              <div class="product-pack-table-wrapper">
-                <div class="pack-table-heading">Choose Pack Size &amp; Pricing</div>
-                <ul class="pack-list" role="list">
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">75g</span>
-                      <small class="pack-desc">Trial &amp; Snacking</small>
+                <!-- Interactive Size Selector -->
+                <div class="product-size-configurator">
+                  <div class="size-config-heading">
+                    <span class="config-label">Select Pack Size:</span>
+                    <span class="config-active-name" id="active-name-5plus">250g Family Pack</span>
+                  </div>
+                  <div class="size-selector-pills" role="radiogroup" aria-label="Select 5+ Pack Size">
+                    <button type="button" class="size-pill-btn" data-grade="5+" data-size="75g" data-label="75g Trial Pack" data-mrp="208" data-offer="194" data-save="14" data-prefill="5+ 75g">
+                      <span class="pill-weight">75g</span>
+                      <span class="pill-type">Trial</span>
+                    </button>
+                    <button type="button" class="size-pill-btn" data-grade="5+" data-size="100g" data-label="100g Standard" data-mrp="273" data-offer="254" data-save="19" data-prefill="5+ 100g">
+                      <span class="pill-weight">100g</span>
+                      <span class="pill-type">Standard</span>
+                    </button>
+                    <button type="button" class="size-pill-btn is-active" data-grade="5+" data-size="250g" data-label="250g Family Pack" data-mrp="650" data-offer="604" data-save="46" data-prefill="5+ 250g" aria-checked="true">
+                      <span class="pill-tag-rec">Most Loved</span>
+                      <span class="pill-weight">250g</span>
+                      <span class="pill-type">Family</span>
+                    </button>
+                    <button type="button" class="size-pill-btn" data-grade="5+" data-size="500g" data-label="500g Super Saver" data-mrp="1274" data-offer="1183" data-save="91" data-prefill="5+ 500g">
+                      <span class="pill-weight">500g</span>
+                      <span class="pill-type">Saver</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Hero Price Display Block -->
+                <div class="product-hero-price-box">
+                  <div class="hero-price-row">
+                    <div class="hero-price-val">
+                      <span class="currency-symbol">₹</span>
+                      <span class="price-offer dynamic-offer">604</span>
+                      <span class="price-mrp dynamic-mrp">₹650</span>
                     </div>
-                    <div class="pack-price" data-mrp="208" data-offer="194" data-save="14">
-                      <span class="price-mrp">₹208</span>
-                      <span class="price-offer">₹194</span>
-                      <span class="price-save">Save ₹14</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="5+ 75g" aria-label="Inquire 5+ 75g">Select</a>
-                  </li>
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">100g</span>
-                      <small class="pack-desc">Standard Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="273" data-offer="254" data-save="19">
-                      <span class="price-mrp">₹273</span>
-                      <span class="price-offer">₹254</span>
-                      <span class="price-save">Save ₹19</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="5+ 100g" aria-label="Inquire 5+ 100g">Select</a>
-                  </li>
-                  <li class="pack-item pack-item--recommended">
-                    <div class="pack-meta">
-                      <span class="pack-size">250g <span class="tag-rec">Most Popular</span></span>
-                      <small class="pack-desc">Family Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="650" data-offer="604" data-save="46">
-                      <span class="price-mrp">₹650</span>
-                      <span class="price-offer">₹604</span>
-                      <span class="price-save">Save ₹46</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire btn-pack-inquire--rec" data-prefill="5+ 250g" aria-label="Inquire 5+ 250g">Select</a>
-                  </li>
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">500g</span>
-                      <small class="pack-desc">Super Saver Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="1274" data-offer="1183" data-save="91">
-                      <span class="price-mrp">₹1,274</span>
-                      <span class="price-offer">₹1,183</span>
-                      <span class="price-save">Save ₹91</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="5+ 500g" aria-label="Inquire 5+ 500g">Select</a>
-                  </li>
+                    <span class="price-save-pill dynamic-save">Save ₹46</span>
+                  </div>
+                  <span class="price-subnote">Inclusive of taxes • Nitrogen-flushed barrier pouch</span>
+                </div>
+
+                <!-- Trust Bullets -->
+                <ul class="product-highlights-list" role="list">
+                  <li><span aria-hidden="true">✦</span> Extra Plump &bull; Extra Crisp Signature Puffs</li>
+                  <li><span aria-hidden="true">✦</span> Zero Chemical Bleach &bull; 100% Hand-Sorted Purity</li>
+                  <li><span aria-hidden="true">✦</span> Resealable Stand-Up Golden Zip Pouch</li>
                 </ul>
-              </div>
 
-              <div class="grade-card-footer product-card-footer">
-                <a href="#inquiry" class="btn btn-primary btn-full" data-prefill="5+ 250g">Order 5+ Large Crunch (250g)</a>
+                <!-- Primary CTA -->
+                <div class="product-card-actions">
+                  <a href="#inquiry" class="btn btn-primary btn-full card-order-btn" data-prefill="5+ 250g">
+                    <span class="btn-text">Order 250g (5+ Large Crunch)</span>
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                  </a>
+                  <button type="button" class="btn-toggle-all-sizes" aria-expanded="false" aria-controls="sizes-list-5plus">
+                    <span>Compare all 4 pack sizes</span>
+                    <span class="toggle-icon" aria-hidden="true">▾</span>
+                  </button>
+                </div>
+
+                <!-- Expandable All-Sizes Comparison Grid -->
+                <div class="all-sizes-drawer" id="sizes-list-5plus" hidden>
+                  <div class="sizes-drawer-table">
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>75g</strong> <small>Trial Pack</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="208" data-offer="194">
+                        <span class="price-mrp">₹208</span>
+                        <span class="price-offer">₹194</span>
+                        <span class="price-save">Save ₹14</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="5+ 75g">Select</a>
+                    </div>
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>100g</strong> <small>Standard</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="273" data-offer="254">
+                        <span class="price-mrp">₹273</span>
+                        <span class="price-offer">₹254</span>
+                        <span class="price-save">Save ₹19</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="5+ 100g">Select</a>
+                    </div>
+                    <div class="drawer-row drawer-row--rec">
+                      <div class="drawer-col-size">
+                        <strong>250g</strong> <small class="text-rec">Most Popular Choice</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="650" data-offer="604">
+                        <span class="price-mrp">₹650</span>
+                        <span class="price-offer">₹604</span>
+                        <span class="price-save">Save ₹46</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn drawer-select-btn--rec" data-prefill="5+ 250g">Select</a>
+                    </div>
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>500g</strong> <small>Super Saver</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="1274" data-offer="1183">
+                        <span class="price-mrp">₹1,274</span>
+                        <span class="price-offer">₹1,183</span>
+                        <span class="price-save">Save ₹91</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="5+ 500g">Select</a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </article>
 
             <!-- PRODUCT 3: 6+ HANDPICK (SUPER JUMBO) -->
             <article class="grade-card product-card" data-grade="6+">
               <div class="product-card-media">
+                <div class="product-media-pedestal" aria-hidden="true"></div>
                 <img src="assets/catalog-pack-6plus.jpg" alt="Prishka Annam 6+ Handpick Super Jumbo Makhana Packaging Net Wt 500g Super Saver" class="product-card-img" width="500" height="500" loading="lazy">
                 <span class="product-badge product-badge--jumbo">Super Jumbo Luxury</span>
-                <span class="product-size-chip">75g • 100g • 250g • 500g</span>
+                <span class="product-origin-chip">🌾 Top 5% Harvest</span>
               </div>
 
-              <div class="grade-header product-card-header">
-                <span class="grade-badge">Super Jumbo</span>
-                <h3 class="product-title">6+ Handpick Makhana</h3>
-                <p class="grade-tagline">Our Biggest, Boldest, Puffiest Makhana — Top 5% Harvest Quality</p>
-                <div class="product-highlights">
-                  <span>✦ Hand-Selected Jumbo Lotus Seed Puffs</span>
-                  <span>✦ Regal Maroon &amp; Gold Gift-Ready Pouch</span>
+              <div class="product-card-body">
+                <div class="product-card-header">
+                  <div class="product-grade-row">
+                    <span class="grade-badge">Super Jumbo</span>
+                    <span class="product-stars-rating" title="Rated 5 out of 5">★★★★★ <small>5.0</small></span>
+                  </div>
+                  <h3 class="product-title">6+ Handpick Makhana</h3>
+                  <p class="grade-tagline">Our Biggest, Boldest, Puffiest Makhana — Top 5% Harvest Selection</p>
                 </div>
-              </div>
 
-              <!-- Pack Price Breakdown Table -->
-              <div class="product-pack-table-wrapper">
-                <div class="pack-table-heading">Choose Pack Size &amp; Pricing</div>
-                <ul class="pack-list" role="list">
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">75g</span>
-                      <small class="pack-desc">Trial &amp; Snacking</small>
+                <!-- Interactive Size Selector -->
+                <div class="product-size-configurator">
+                  <div class="size-config-heading">
+                    <span class="config-label">Select Pack Size:</span>
+                    <span class="config-active-name" id="active-name-6plus">500g Super Saver</span>
+                  </div>
+                  <div class="size-selector-pills" role="radiogroup" aria-label="Select 6+ Pack Size">
+                    <button type="button" class="size-pill-btn" data-grade="6+" data-size="75g" data-label="75g Trial Pack" data-mrp="247" data-offer="228" data-save="19" data-prefill="6+ 75g">
+                      <span class="pill-weight">75g</span>
+                      <span class="pill-type">Trial</span>
+                    </button>
+                    <button type="button" class="size-pill-btn" data-grade="6+" data-size="100g" data-label="100g Standard" data-mrp="324" data-offer="298" data-save="26" data-prefill="6+ 100g">
+                      <span class="pill-weight">100g</span>
+                      <span class="pill-type">Standard</span>
+                    </button>
+                    <button type="button" class="size-pill-btn" data-grade="6+" data-size="250g" data-label="250g Family Pack" data-mrp="779" data-offer="714" data-save="65" data-prefill="6+ 250g">
+                      <span class="pill-weight">250g</span>
+                      <span class="pill-type">Family</span>
+                    </button>
+                    <button type="button" class="size-pill-btn is-active" data-grade="6+" data-size="500g" data-label="500g Super Saver" data-mrp="1495" data-offer="1378" data-save="117" data-prefill="6+ 500g" aria-checked="true">
+                      <span class="pill-tag-rec">Jumbo Value</span>
+                      <span class="pill-weight">500g</span>
+                      <span class="pill-type">Saver</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Hero Price Display Block -->
+                <div class="product-hero-price-box">
+                  <div class="hero-price-row">
+                    <div class="hero-price-val">
+                      <span class="currency-symbol">₹</span>
+                      <span class="price-offer dynamic-offer">1,378</span>
+                      <span class="price-mrp dynamic-mrp">₹1,495</span>
                     </div>
-                    <div class="pack-price" data-mrp="247" data-offer="228" data-save="19">
-                      <span class="price-mrp">₹247</span>
-                      <span class="price-offer">₹228</span>
-                      <span class="price-save">Save ₹19</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="6+ 75g" aria-label="Inquire 6+ 75g">Select</a>
-                  </li>
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">100g</span>
-                      <small class="pack-desc">Standard Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="324" data-offer="298" data-save="26">
-                      <span class="price-mrp">₹324</span>
-                      <span class="price-offer">₹298</span>
-                      <span class="price-save">Save ₹26</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="6+ 100g" aria-label="Inquire 6+ 100g">Select</a>
-                  </li>
-                  <li class="pack-item">
-                    <div class="pack-meta">
-                      <span class="pack-size">250g</span>
-                      <small class="pack-desc">Family Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="779" data-offer="714" data-save="65">
-                      <span class="price-mrp">₹779</span>
-                      <span class="price-offer">₹714</span>
-                      <span class="price-save">Save ₹65</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire" data-prefill="6+ 250g" aria-label="Inquire 6+ 250g">Select</a>
-                  </li>
-                  <li class="pack-item pack-item--recommended">
-                    <div class="pack-meta">
-                      <span class="pack-size">500g <span class="tag-rec">Super Saver</span></span>
-                      <small class="pack-desc">Jumbo Saver Pack</small>
-                    </div>
-                    <div class="pack-price" data-mrp="1495" data-offer="1378" data-save="117">
-                      <span class="price-mrp">₹1,495</span>
-                      <span class="price-offer">₹1,378</span>
-                      <span class="price-save">Save ₹117</span>
-                    </div>
-                    <a href="#inquiry" class="btn-pack-inquire btn-pack-inquire--rec" data-prefill="6+ 500g" aria-label="Inquire 6+ 500g">Select</a>
-                  </li>
+                    <span class="price-save-pill dynamic-save">Save ₹117</span>
+                  </div>
+                  <span class="price-subnote">Inclusive of taxes • Nitrogen-flushed barrier pouch</span>
+                </div>
+
+                <!-- Trust Bullets -->
+                <ul class="product-highlights-list" role="list">
+                  <li><span aria-hidden="true">✦</span> Rare Giant Puffs Hand-Sorted from Top Harvest</li>
+                  <li><span aria-hidden="true">✦</span> Zero Chemical Bleach &bull; Regal Maroon Foil Pouch</li>
+                  <li><span aria-hidden="true">✦</span> Explosive Crispness &bull; Pure Gift-Ready Luxury</li>
                 </ul>
-              </div>
 
-              <div class="grade-card-footer product-card-footer">
-                <a href="#inquiry" class="btn btn-secondary btn-full" data-prefill="6+ 500g">Order 6+ Super Jumbo (500g)</a>
+                <!-- Primary CTA -->
+                <div class="product-card-actions">
+                  <a href="#inquiry" class="btn btn-primary btn-full card-order-btn" data-prefill="6+ 500g">
+                    <span class="btn-text">Order 500g (6+ Super Jumbo)</span>
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                  </a>
+                  <button type="button" class="btn-toggle-all-sizes" aria-expanded="false" aria-controls="sizes-list-6plus">
+                    <span>Compare all 4 pack sizes</span>
+                    <span class="toggle-icon" aria-hidden="true">▾</span>
+                  </button>
+                </div>
+
+                <!-- Expandable All-Sizes Comparison Grid -->
+                <div class="all-sizes-drawer" id="sizes-list-6plus" hidden>
+                  <div class="sizes-drawer-table">
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>75g</strong> <small>Trial Pack</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="247" data-offer="228">
+                        <span class="price-mrp">₹247</span>
+                        <span class="price-offer">₹228</span>
+                        <span class="price-save">Save ₹19</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="6+ 75g">Select</a>
+                    </div>
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>100g</strong> <small>Standard</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="324" data-offer="298">
+                        <span class="price-mrp">₹324</span>
+                        <span class="price-offer">₹298</span>
+                        <span class="price-save">Save ₹26</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="6+ 100g">Select</a>
+                    </div>
+                    <div class="drawer-row">
+                      <div class="drawer-col-size">
+                        <strong>250g</strong> <small>Family Pack</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="779" data-offer="714">
+                        <span class="price-mrp">₹779</span>
+                        <span class="price-offer">₹714</span>
+                        <span class="price-save">Save ₹65</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn" data-prefill="6+ 250g">Select</a>
+                    </div>
+                    <div class="drawer-row drawer-row--rec">
+                      <div class="drawer-col-size">
+                        <strong>500g</strong> <small class="text-rec">Jumbo Saver Value</small>
+                      </div>
+                      <div class="drawer-col-price" data-mrp="1495" data-offer="1378">
+                        <span class="price-mrp">₹1,495</span>
+                        <span class="price-offer">₹1,378</span>
+                        <span class="price-save">Save ₹117</span>
+                      </div>
+                      <a href="#inquiry" class="drawer-select-btn drawer-select-btn--rec" data-prefill="6+ 500g">Select</a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </article>
 
