@@ -1114,7 +1114,6 @@ h1 em {
   background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl) var(--space-lg) var(--space-lg);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1127,58 +1126,80 @@ h1 em {
 }
 
 .step-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(170, 59, 16, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(74, 30, 16, 0.12);
   border-color: rgba(212, 164, 70, 0.6);
 }
 
-.step-card-accent {
+.step-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  inline-size: 100%;
+  background: radial-gradient(circle at center, #FFF4E5 0%, #E8D5C0 100%);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.step-img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease-out;
+}
+
+.step-card:hover .step-img {
+  transform: scale(1.08);
+}
+
+.step-overlay {
   position: absolute;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: 4px;
-  background: linear-gradient(90deg, var(--color-maroon) 0%, var(--color-gold) 100%);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.65) 100%);
+  pointer-events: none;
 }
 
-.step-badge-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-block-end: var(--space-xs);
-}
-
-.step-number {
+.step-number-floating {
+  position: absolute;
+  inset-block-start: 0.85rem;
+  inset-inline-start: 0.85rem;
   font-family: var(--ff-display);
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  color: var(--color-maroon);
+  color: #ffffff;
+  background: rgba(170, 59, 16, 0.92);
+  backdrop-filter: blur(6px);
   line-height: 1;
-  opacity: 0.85;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(212, 164, 70, 0.5);
+  z-index: 2;
 }
 
-.step-phase {
+.step-phase-floating {
+  position: absolute;
+  inset-block-end: 0.85rem;
+  inset-inline-start: 0.85rem;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-gold);
-  background: rgba(212, 164, 70, 0.12);
-  padding: 0.2rem 0.6rem;
+  color: #ffffff;
+  background: rgba(30, 78, 43, 0.92);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.75rem;
   border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
-.step-icon-wrap {
-  inline-size: 52px;
-  block-size: 52px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #FFF4E5 0%, #F5E5D0 100%);
-  border: 1px solid rgba(212, 164, 70, 0.35);
+.step-body {
+  padding: var(--space-lg);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  margin-block: var(--space-sm) var(--space-md);
-  box-shadow: 0 4px 10px rgba(212, 164, 70, 0.15);
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .step-title {
@@ -1187,7 +1208,7 @@ h1 em {
   font-weight: 700;
   color: var(--color-maroon);
   line-height: 1.3;
-  margin-block-end: var(--space-xs);
+  margin-block-end: 0.35rem;
 }
 
 .step-desc {
@@ -1200,7 +1221,6 @@ h1 em {
 
 .step-meta {
   margin-block-start: auto;
-  padding-block-start: var(--space-xs);
 }
 
 .step-pill {
