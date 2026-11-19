@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" role="img" aria-label="Crisp Bihar Makhana Puff">
+  <defs>
+    <!-- Organic 3D Radial Glow -->
+    <radialGradient id="makhanaGlow" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#FAF2E4"/>
+      <stop offset="75%" stop-color="#E5D3B8"/>
+      <stop offset="92%" stop-color="#BFA37E"/>
+      <stop offset="100%" stop-color="#8E6A44"/>
+    </radialGradient>
+
+    <!-- Roasted Golden Spots Gradient -->
+    <radialGradient id="roastSpeck" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5A3515" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#8C5C2B" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#D4A76A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Natural Drop Shadow -->
+    <filter id="puffShadow" x="-20%" y="-15%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="4" stdDeviation="4" flood-color="#2D1A10" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#puffShadow)">
+    <!-- Organic, Craggy Lotus Seed Silhouette (Not a generic circle) -->
+    <path d="M 50,8
+             C 68,7 86,22 91,38
+             C 96,54 88,72 78,84
+             C 66,94 48,95 34,90
+             C 18,85 8,71 7,54
+             C 6,36 18,18 34,11
+             C 40,8 45,9 50,8 Z" 
+          fill="url(#makhanaGlow)"/>
+
+    <!-- Natural Craggy Folds & Puffy Crevices -->
+    <!-- Crevice 1 -->
+    <path d="M 28,32 C 36,36 44,48 42,60 C 40,68 35,74 29,76" 
+          fill="none" 
+          stroke="#C4A887" 
+          stroke-width="2.5" 
+          stroke-linecap="round" 
+          opacity="0.6"/>
+
+    <!-- Crevice 2 -->
+    <path d="M 54,24 C 62,32 68,44 65,58 C 63,68 56,76 49,82" 
+          fill="none" 
+          stroke="#C4A887" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          opacity="0.5"/>
+
+    <!-- Crevice 3 -->
+    <path d="M 46,38 C 50,42 54,50 51,58" 
+          fill="none" 
+          stroke="#B0906D" 
+          stroke-width="1.8" 
+          stroke-linecap="round" 
+          opacity="0.55"/>
+
+    <!-- Characteristic Roasted Seed Husk Specks (Authentic Bihar Makhana markers) -->
+    <ellipse cx="64" cy="48" rx="3.5" ry="2.5" fill="url(#roastSpeck)"/>
+    <ellipse cx="36" cy="56" rx="4" ry="3" fill="url(#roastSpeck)" transform="rotate(-15 36 56)"/>
+    <ellipse cx="48" cy="28" rx="2.5" ry="2" fill="url(#roastSpeck)"/>
+    <ellipse cx="76" cy="62" rx="3" ry="2" fill="url(#roastSpeck)"/>
+    <ellipse cx="24" cy="42" rx="2" ry="1.5" fill="url(#roastSpeck)"/>
+    
+    <!-- Top Highlight Glint (Crispness sheen) -->
+    <ellipse cx="42" cy="24" rx="14" ry="8" fill="#FFFFFF" opacity="0.65" transform="rotate(-20 42 24)"/>
+  </g>
+</svg>
+
