@@ -57,63 +57,43 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="hero-interactive-showcase" id="interactive-pouch-container" tabindex="0" role="region" aria-label="Interactive Prishka Annam Pouch - Hover to pour fresh makhana">
-            <!-- Realistic Culinary Stage Backdrop (Dark wood, burlap sack, spices & roasted bowl) -->
-            <div class="showcase-stage-backdrop" aria-hidden="true">
-              <img src="assets/banner-stage-realistic.jpg" alt="" class="stage-bg-img" width="1200" height="896">
-              <div class="stage-overlay" aria-hidden="true"></div>
-            </div>
+          <div class="hero-interactive-showcase" id="interactive-pouch-container" tabindex="0" role="region" aria-label="Interactive Prishka Annam Makhana Showcase - Hover or tap to pour fresh crunch">
+            <div class="hero-photo-stage">
+              <!-- Idle State: Authentic packet resting on rustic table -->
+              <img src="assets/banner-hero-idle.jpg" alt="Prishka Annam Premium Bihar Makhana pouch standing on rustic wooden table" class="hero-stage-img hero-img-idle" width="1376" height="768">
 
-            <!-- Interactive Prompt Badge -->
-            <div class="pouch-interactive-hint">
-              <span class="hint-pulse" aria-hidden="true"></span>
-              <span class="hint-icon" aria-hidden="true">✨</span>
-              <span class="hint-text"><strong>Hover or Tap Packet</strong> to pour fresh crunch!</span>
-            </div>
+              <!-- Pouring Action State: Tilted packet actively pouring fresh makhana puffs into the bowl -->
+              <img src="assets/banner-hero-pouring.jpg" alt="Prishka Annam Makhana pouring fresh crunchy puffs into a roasted brass bowl" class="hero-stage-img hero-img-pouring" width="1376" height="768" loading="eager">
 
-            <!-- Makhana Pack Mockup with tilt & pour physics -->
-            <div class="pouch-pour-wrapper">
-              <div class="makhana-pouch" id="makhana-packet">
-                <img src="assets/pouch-realistic.png" alt="Prishka Annam Premium Bihar Makhana Pouch" class="pouch-photo-img" width="280" height="296">
+              <!-- Ambient Vignette & Lighting -->
+              <div class="hero-stage-vignette" aria-hidden="true"></div>
 
-                <!-- Pour Spout Emitter Anchored Directly at the Pouch Mouth -->
-                <div class="pouch-mouth-emitter" aria-hidden="true">
-                  <div class="falling-makhana-stream">
-                    <img src="assets/puff-real-1.png" alt="" class="falling-puff puff-stream-1" width="44" height="44">
-                    <img src="assets/puff-real-2.png" alt="" class="falling-puff puff-stream-2" width="40" height="40">
-                    <img src="assets/puff-real-3.png" alt="" class="falling-puff puff-stream-3" width="46" height="46">
-                    <img src="assets/puff-real-4.png" alt="" class="falling-puff puff-stream-4" width="38" height="38">
-                    <img src="assets/puff-real-1.png" alt="" class="falling-puff puff-stream-5" width="42" height="42">
-                    <img src="assets/puff-real-2.png" alt="" class="falling-puff puff-stream-6" width="44" height="44">
-                    <img src="assets/puff-real-3.png" alt="" class="falling-puff puff-stream-7" width="36" height="36">
-                    <img src="assets/puff-real-4.png" alt="" class="falling-puff puff-stream-8" width="42" height="42">
-                    <img src="assets/puff-real-1.png" alt="" class="falling-puff puff-stream-9" width="40" height="40">
-                    <img src="assets/puff-real-2.png" alt="" class="falling-puff puff-stream-10" width="44" height="44">
-                  </div>
-                </div>
+              <!-- Interactive Prompt Badge -->
+              <div class="pouch-interactive-hint">
+                <span class="hint-pulse" aria-hidden="true"></span>
+                <span class="hint-icon" aria-hidden="true">✨</span>
+                <span class="hint-text"><strong>Hover or Tap</strong> to pour fresh crunch!</span>
               </div>
 
-              <!-- Ghee Roasted Brass Bowl Target Callout -->
-              <div class="roasted-bowl-target">
-                <div class="bowl-ripple-glow" aria-hidden="true"></div>
-                <div class="bowl-tag">
-                  <span class="bowl-tag-icon">🔥</span>
-                  <span>Fresh Ghee-Roasted Crunch</span>
-                </div>
+              <!-- Floating Quality Badges -->
+              <div class="showcase-badge badge-quality" aria-label="100% Pure Bihar Origin">
+                <span class="badge-sub">100% PURE</span>
+                <span class="badge-main">BIHAR</span>
+                <span class="badge-sub">HARVEST</span>
               </div>
-            </div>
 
-            <!-- Floating Quality Badges -->
-            <div class="showcase-badge badge-quality" aria-label="100% Pure Bihar Origin">
-              <span class="badge-sub">100% PURE</span>
-              <span class="badge-main">BIHAR</span>
-              <span class="badge-sub">HARVEST</span>
-            </div>
+              <div class="showcase-badge badge-favorite" aria-label="Daily Snacking Favorite">
+                <span class="badge-sub">DAILY SNACK</span>
+                <span class="badge-main">CRUNCH</span>
+                <span class="badge-sub">FAVORITE!</span>
+              </div>
 
-            <div class="showcase-badge badge-favorite" aria-label="Daily Snacking Favorite">
-              <span class="badge-sub">DAILY SNACK</span>
-              <span class="badge-main">CRUNCH</span>
-              <span class="badge-sub">FAVORITE!</span>
+              <!-- Interactive Action Status Indicator -->
+              <div class="hero-pour-status-tag" aria-live="polite">
+                <span class="status-indicator-dot" aria-hidden="true"></span>
+                <span class="status-text-idle">Tabletop Rest</span>
+                <span class="status-text-pouring">🔥 Pouring Ghee-Roasted Crunch!</span>
+              </div>
             </div>
           </div>
         </div>
