@@ -865,6 +865,29 @@ h1 em {
 
 .trust-icon {
   font-size: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.veg-symbol-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #1E7E34;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(30, 126, 52, 0.2);
+}
+
+.veg-symbol-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #1E7E34;
 }
 
 .trust-label {
@@ -903,8 +926,36 @@ h1 em {
 }
 
 .use-case-img-placeholder {
-  font-size: 3rem;
-  margin-block-end: var(--space-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 164, 70, 0.16) 0%, rgba(170, 59, 16, 0.08) 100%);
+  border: 1px solid rgba(212, 164, 70, 0.35);
+  color: var(--color-rust);
+  margin-block-end: var(--space-md);
+  box-shadow: 0 4px 12px rgba(170, 59, 16, 0.06);
+  transition: transform var(--duration) var(--ease-out),
+              background var(--duration) var(--ease-out),
+              box-shadow var(--duration) var(--ease-out),
+              color var(--duration) var(--ease-out);
+}
+
+.use-case-card:hover .use-case-img-placeholder {
+  transform: translateY(-2px) scale(1.06);
+  background: linear-gradient(135deg, rgba(170, 59, 16, 0.14) 0%, rgba(212, 164, 70, 0.28) 100%);
+  border-color: rgba(170, 59, 16, 0.4);
+  box-shadow: 0 8px 20px rgba(170, 59, 16, 0.14);
+  color: var(--color-rust-dark);
+}
+
+.use-case-img-placeholder svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
 }
 
 .use-case-card h3 {
