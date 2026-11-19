@@ -625,6 +625,27 @@ h1 em {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
 }
 
+.pouch-mouth-opening {
+  position: absolute;
+  inset-block-start: 12px;
+  inset-inline-start: 18%;
+  inline-size: 38px;
+  block-size: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(35, 18, 9, 0.9) 0%, rgba(55, 28, 14, 0.6) 65%, transparent 100%);
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.6);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hero-interactive-showcase:hover .pouch-mouth-opening,
+.hero-interactive-showcase.is-pouring .pouch-mouth-opening {
+  opacity: 1;
+  transform: rotate(-10deg) scale(1);
+}
+
 /* Real-time 60fps Physics-driven Pouring Canvas */
 .pour-canvas {
   position: absolute;

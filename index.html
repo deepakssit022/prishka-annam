@@ -75,10 +75,9 @@
             <div class="pouch-pour-wrapper">
               <div class="makhana-pouch" id="makhana-packet">
                 <img src="assets/pouch-realistic.png" alt="Prishka Annam Premium Bihar Makhana Pouch" class="pouch-photo-img" width="280" height="296">
+                <!-- Visual open mouth opening on packet -->
+                <div class="pouch-mouth-opening" aria-hidden="true"></div>
               </div>
-
-              <!-- Real-time 60fps Physics-driven Pouring Canvas -->
-              <canvas id="pour-canvas" class="pour-canvas" aria-hidden="true"></canvas>
 
               <!-- Ghee Roasted Brass Bowl Target Callout -->
               <div class="roasted-bowl-target">
@@ -89,6 +88,9 @@
                 </div>
               </div>
             </div>
+
+            <!-- Real-time 60fps Physics-driven Pouring Canvas covering entire stage -->
+            <canvas id="pour-canvas" class="pour-canvas" aria-hidden="true"></canvas>
 
             <!-- Floating Quality Badges -->
             <div class="showcase-badge badge-quality" aria-label="100% Pure Bihar Origin">

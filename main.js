@@ -95,8 +95,9 @@
   // ── INTERACTIVE MAKAHANA POUCH POURING ANIMATION (60FPS CANVAS PHYSICS) ──
   const pouchContainer = document.getElementById('interactive-pouch-container');
   const canvas = document.getElementById('pour-canvas');
+  const pouch = document.getElementById('makhana-packet');
 
-  if (pouchContainer && canvas) {
+  if (pouchContainer && canvas && pouch) {
     const ctx = canvas.getContext('2d');
 
     // Preload photographic makhana puff textures
@@ -137,27 +138,43 @@
     let particles = [];
     let lastSpawnTime = 0;
 
-    function spawnPuff() {
-      if (loadedCount === 0) return;
-      const puffImg = puffImages[Math.floor(Math.random() * puffImages.length)];
-      // Spawn origin precisely at the mouth of the tilted pouch
-      const mouthX = width * 0.37 + (Math.random() * 12 - 6);
-      const mouthY = height * 0.23 + (Math.random() * 8 - 4);
-      const targetBowlY = height * 0.73 + (Math.random() * 20 - 10);
-      const fullSize = 34 + Math.random() * 12;
+    // Calculate live mouth & bowl coordinates from DOM elements
+    function getStreamCoordinates() {
+      const containerRect = pouchContainer.getBoundingClientRect();
+      const pouchRect = pouch.getBoundingClientRect();
 
+      // Top-left tilted mouth opening
+      const mouthX = pouchRect.left - containerRect.left + pouchRect.width * 0.22;
+      const mouthY = pouchRect.top - containerRect.top + pouchRect.height * 0.12;
+
+      // Center of the roasted brass bowl receiving the cascade
+      const targetX = pouchRect.left - containerRect.left + pouchRect.width * 0.54;
+      const targetY = pouchRect.bottom - containerRect.top - pouchRect.height * 0.08;
+
+      return { mouthX, mouthY, targetX, targetY };
+    }
+
+    function emitPuff(isBackLayer) {
+      if (loadedCount === 0) return;
+      const { mouthX, mouthY, targetX, targetY } = getStreamCoordinates();
+      const puffImg = puffImages[Math.floor(Math.random() * puffImages.length)];
+      
+      const fullSize = isBackLayer ? (28 + Math.random() * 8) : (38 + Math.random() * 12);
+      
       particles.push({
         img: puffImg,
-        x: mouthX,
-        y: mouthY,
-        vx: 0.9 + Math.random() * 1.5, // gently arcs toward center-right bowl
-        vy: 0.6 + Math.random() * 1.2, // emerges with initial downward momentum
-        size: fullSize * 0.25, // emerges small from mouth
+        isBackLayer: isBackLayer,
+        x: mouthX + (Math.random() * 10 - 5),
+        y: mouthY + (Math.random() * 8 - 4),
+        vx: 1.2 + Math.random() * 1.4, // natural forward arc
+        vy: 1.4 + Math.random() * 1.2, // downward momentum out of tilted mouth
+        size: fullSize * 0.75, // emerges naturally sized
         targetSize: fullSize,
         rot: Math.random() * Math.PI * 2,
-        vrot: (Math.random() - 0.5) * 0.05, // natural, gentle tumbling
-        alpha: 0.15,
-        targetY: targetBowlY,
+        vrot: (Math.random() - 0.5) * 0.04, // gentle, realistic tumbling
+        alpha: 0.2,
+        targetX: targetX + (Math.random() * 28 - 14),
+        targetY: targetY + (Math.random() * 18 - 9),
         bounced: false,
         dead: false
       });
@@ -166,46 +183,54 @@
     function renderPhysics(timestamp) {
       ctx.clearRect(0, 0, width, height);
 
-      // Spawn puffs continuously while pouring
+      // Continuously emit dense, organic stream while pouring (2 puffs per burst)
       if (isPouring) {
-        if (!lastSpawnTime || timestamp - lastSpawnTime > 55) { // ~18 puffs/sec
-          spawnPuff();
+        if (!lastSpawnTime || timestamp - lastSpawnTime > 34) { // ~55 puffs/sec for dense stream
+          emitPuff(true);  // Background depth puff
+          emitPuff(false); // Foreground crisp puff
           lastSpawnTime = timestamp;
         }
       }
 
+      // Sort: draw background depth puffs first, foreground puffs on top
+      particles.sort((a, b) => (a.isBackLayer ? -1 : 1));
+
       // Update and draw active particles
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
+        
+        // Physics update
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.36; // realistic gravitational acceleration
+        p.vy += 0.40; // natural earth gravity
+        // Smoothly guide stream toward bowl target
+        p.vx += (p.targetX - p.x) * 0.008;
         p.rot += p.vrot;
 
-        // Smooth growth as it emerges from packet
+        // Smooth fade-in as it clears the mouth
         if (p.size < p.targetSize) {
-          p.size += (p.targetSize - p.size) * 0.14;
+          p.size += (p.targetSize - p.size) * 0.2;
         }
         if (p.alpha < 1 && !p.bounced) {
-          p.alpha = Math.min(1, p.alpha + 0.16);
+          p.alpha = Math.min(1, p.alpha + 0.25);
         }
 
         // Soft bounce & landing inside the roasted brass bowl
         if (p.y >= p.targetY) {
           if (!p.bounced) {
             p.bounced = true;
-            p.vy = -p.vy * 0.2; // soft physical dampening
-            p.vx = p.vx * 0.35;
-            p.vrot = p.vrot * 0.25;
+            p.vy = -p.vy * 0.22; // gentle physical dampening
+            p.vx = (Math.random() - 0.5) * 0.6;
+            p.vrot = p.vrot * 0.3;
           } else {
-            p.alpha -= 0.06;
+            p.alpha -= 0.07;
             if (p.alpha <= 0) {
               p.dead = true;
             }
           }
         }
 
-        if (p.dead || p.y > height + 60) {
+        if (p.dead || p.y > height + 50) {
           particles.splice(i, 1);
           continue;
         }
@@ -216,9 +241,16 @@
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rot);
 
-        ctx.shadowColor = 'rgba(25, 12, 6, 0.45)';
-        ctx.shadowBlur = 8;
-        ctx.shadowOffsetY = 4;
+        if (p.isBackLayer) {
+          ctx.filter = 'brightness(0.92)';
+          ctx.shadowColor = 'rgba(25, 12, 6, 0.3)';
+          ctx.shadowBlur = 4;
+          ctx.shadowOffsetY = 2;
+        } else {
+          ctx.shadowColor = 'rgba(25, 12, 6, 0.45)';
+          ctx.shadowBlur = 8;
+          ctx.shadowOffsetY = 4;
+        }
 
         if (p.img && p.img.complete) {
           ctx.drawImage(p.img, -p.size / 2, -p.size / 2, p.size, p.size);
