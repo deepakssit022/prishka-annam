@@ -386,11 +386,12 @@
 
       // Validate required fields
       const name = data.name ? data.name.trim() : '';
+      const phone = data.phone ? data.phone.trim() : '';
       const role = data.role || '';
 
-      if (!name || !role) {
+      if (!name || !phone || !role) {
         if (formStatus) {
-          formStatus.textContent = 'Please fill in your name and select your role.';
+          formStatus.textContent = 'Please fill in your name, phone number, and select your role.';
           formStatus.className = 'form-status error';
         }
         // Move focus to first invalid field

@@ -2682,7 +2682,29 @@ body.show-offer .price-save {
   padding: 0;
 }
 
+.field-optional {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-inline-start: 0.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 48rem) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
 .form-field input[type="text"],
+.form-field input[type="tel"],
+.form-field input[type="email"],
 .form-field select,
 .form-field textarea {
   font: inherit;
