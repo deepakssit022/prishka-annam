@@ -1202,20 +1202,55 @@
                 <input type="text" id="inq-name" name="name" required autocomplete="name">
               </div>
 
-              <fieldset class="form-field">
-                <legend>Your Role <span aria-hidden="true">*</span></legend>
-                <div class="radio-group">
-                  <label class="radio-label">
-                    <input type="radio" name="role" value="consumer" required>
-                    <span>Consumer</span>
+              <fieldset class="form-field role-fieldset">
+                <legend class="role-legend">
+                  <span class="legend-text">Your Role <span class="required-star" aria-hidden="true">*</span></span>
+                  <small class="legend-hint">Select how you'd like to purchase or partner</small>
+                </legend>
+                <div class="role-cards-grid" role="radiogroup" aria-required="true">
+                  <!-- Role 1: Consumer -->
+                  <label class="role-card">
+                    <input type="radio" name="role" value="consumer" required class="role-radio-input">
+                    <div class="role-card-inner">
+                      <div class="role-radio-indicator" aria-hidden="true">
+                        <span class="radio-dot"></span>
+                      </div>
+                      <div class="role-card-icon" aria-hidden="true">🛍️</div>
+                      <div class="role-card-text">
+                        <strong class="role-title">Consumer</strong>
+                        <span class="role-subtitle">Home snacking &amp; daily family packs</span>
+                      </div>
+                    </div>
                   </label>
-                  <label class="radio-label">
-                    <input type="radio" name="role" value="apartment-bulk">
-                    <span>Apartment / Society Bulk</span>
+
+                  <!-- Role 2: Apartment / Society Bulk -->
+                  <label class="role-card">
+                    <input type="radio" name="role" value="apartment-bulk" class="role-radio-input">
+                    <div class="role-card-inner">
+                      <div class="role-radio-indicator" aria-hidden="true">
+                        <span class="radio-dot"></span>
+                      </div>
+                      <div class="role-card-icon" aria-hidden="true">🏢</div>
+                      <div class="role-card-text">
+                        <strong class="role-title">Apartment / Society</strong>
+                        <span class="role-subtitle">Community bulk &amp; resident orders</span>
+                      </div>
+                    </div>
                   </label>
-                  <label class="radio-label">
-                    <input type="radio" name="role" value="dealer">
-                    <span>Dealer / Retailer</span>
+
+                  <!-- Role 3: Dealer / Retailer -->
+                  <label class="role-card">
+                    <input type="radio" name="role" value="dealer" class="role-radio-input">
+                    <div class="role-card-inner">
+                      <div class="role-radio-indicator" aria-hidden="true">
+                        <span class="radio-dot"></span>
+                      </div>
+                      <div class="role-card-icon" aria-hidden="true">🏪</div>
+                      <div class="role-card-text">
+                        <strong class="role-title">Dealer / Retailer</strong>
+                        <span class="role-subtitle">Store stocking &amp; trade distribution</span>
+                      </div>
+                    </div>
                   </label>
                 </div>
               </fieldset>
