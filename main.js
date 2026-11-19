@@ -92,19 +92,166 @@
     });
   });
 
-  // ── INTERACTIVE MAKAHANA POUCH POURING ANIMATION ─────────────────────────
+  // ── INTERACTIVE MAKAHANA POUCH POURING ANIMATION (60FPS CANVAS PHYSICS) ──
   const pouchContainer = document.getElementById('interactive-pouch-container');
-  if (pouchContainer) {
-    // Tap or Click toggle (perfect for mobile and desktop click)
-    pouchContainer.addEventListener('click', () => {
-      pouchContainer.classList.toggle('is-pouring');
+  const canvas = document.getElementById('pour-canvas');
+
+  if (pouchContainer && canvas) {
+    const ctx = canvas.getContext('2d');
+
+    // Preload photographic makhana puff textures
+    const puffSources = [
+      'assets/puff-real-1.png',
+      'assets/puff-real-2.png',
+      'assets/puff-real-3.png',
+      'assets/puff-real-4.png'
+    ];
+    const puffImages = [];
+    let loadedCount = 0;
+    puffSources.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => { loadedCount++; };
+      puffImages.push(img);
     });
 
-    // Keyboard support (Space or Enter triggers pour)
+    let width = 0;
+    let height = 0;
+    let dpr = window.devicePixelRatio || 1;
+
+    function resizeCanvas() {
+      const rect = pouchContainer.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let isPouring = false;
+    let particles = [];
+    let lastSpawnTime = 0;
+
+    function spawnPuff() {
+      if (loadedCount === 0) return;
+      const puffImg = puffImages[Math.floor(Math.random() * puffImages.length)];
+      // Spawn origin precisely at the mouth of the tilted pouch
+      const mouthX = width * 0.37 + (Math.random() * 12 - 6);
+      const mouthY = height * 0.23 + (Math.random() * 8 - 4);
+      const targetBowlY = height * 0.73 + (Math.random() * 20 - 10);
+      const fullSize = 34 + Math.random() * 12;
+
+      particles.push({
+        img: puffImg,
+        x: mouthX,
+        y: mouthY,
+        vx: 0.9 + Math.random() * 1.5, // gently arcs toward center-right bowl
+        vy: 0.6 + Math.random() * 1.2, // emerges with initial downward momentum
+        size: fullSize * 0.25, // emerges small from mouth
+        targetSize: fullSize,
+        rot: Math.random() * Math.PI * 2,
+        vrot: (Math.random() - 0.5) * 0.05, // natural, gentle tumbling
+        alpha: 0.15,
+        targetY: targetBowlY,
+        bounced: false,
+        dead: false
+      });
+    }
+
+    function renderPhysics(timestamp) {
+      ctx.clearRect(0, 0, width, height);
+
+      // Spawn puffs continuously while pouring
+      if (isPouring) {
+        if (!lastSpawnTime || timestamp - lastSpawnTime > 55) { // ~18 puffs/sec
+          spawnPuff();
+          lastSpawnTime = timestamp;
+        }
+      }
+
+      // Update and draw active particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.36; // realistic gravitational acceleration
+        p.rot += p.vrot;
+
+        // Smooth growth as it emerges from packet
+        if (p.size < p.targetSize) {
+          p.size += (p.targetSize - p.size) * 0.14;
+        }
+        if (p.alpha < 1 && !p.bounced) {
+          p.alpha = Math.min(1, p.alpha + 0.16);
+        }
+
+        // Soft bounce & landing inside the roasted brass bowl
+        if (p.y >= p.targetY) {
+          if (!p.bounced) {
+            p.bounced = true;
+            p.vy = -p.vy * 0.2; // soft physical dampening
+            p.vx = p.vx * 0.35;
+            p.vrot = p.vrot * 0.25;
+          } else {
+            p.alpha -= 0.06;
+            if (p.alpha <= 0) {
+              p.dead = true;
+            }
+          }
+        }
+
+        if (p.dead || p.y > height + 60) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        // Draw puff sprite with soft contact shadow
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+
+        ctx.shadowColor = 'rgba(25, 12, 6, 0.45)';
+        ctx.shadowBlur = 8;
+        ctx.shadowOffsetY = 4;
+
+        if (p.img && p.img.complete) {
+          ctx.drawImage(p.img, -p.size / 2, -p.size / 2, p.size, p.size);
+        }
+        ctx.restore();
+      }
+
+      requestAnimationFrame(renderPhysics);
+    }
+
+    requestAnimationFrame(renderPhysics);
+
+    // Interactive Hover & Tap Controls
+    pouchContainer.addEventListener('mouseenter', () => {
+      isPouring = true;
+      pouchContainer.classList.add('is-pouring');
+    });
+
+    pouchContainer.addEventListener('mouseleave', () => {
+      isPouring = false;
+      pouchContainer.classList.remove('is-pouring');
+    });
+
+    pouchContainer.addEventListener('click', () => {
+      isPouring = !isPouring;
+      pouchContainer.classList.toggle('is-pouring', isPouring);
+    });
+
     pouchContainer.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+      if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
-        pouchContainer.classList.toggle('is-pouring');
+        isPouring = !isPouring;
+        pouchContainer.classList.toggle('is-pouring', isPouring);
       }
     });
   }

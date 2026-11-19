@@ -58,42 +58,49 @@
         </div>
         <div class="hero-visual">
           <div class="hero-interactive-showcase" id="interactive-pouch-container" tabindex="0" role="region" aria-label="Interactive Prishka Annam Makhana Showcase - Hover or tap to pour fresh crunch">
-            <div class="hero-photo-stage">
-              <!-- Idle State: Authentic packet resting on rustic table -->
-              <img src="assets/banner-hero-idle.jpg" alt="Prishka Annam Premium Bihar Makhana pouch standing on rustic wooden table" class="hero-stage-img hero-img-idle" width="1376" height="768">
+            <!-- Realistic Culinary Stage Backdrop -->
+            <div class="showcase-stage-backdrop" aria-hidden="true">
+              <img src="assets/banner-stage-realistic.jpg" alt="" class="stage-bg-img" width="1200" height="896">
+              <div class="stage-overlay" aria-hidden="true"></div>
+            </div>
 
-              <!-- Pouring Action State: Tilted packet actively pouring fresh makhana puffs into the bowl -->
-              <img src="assets/banner-hero-pouring.jpg" alt="Prishka Annam Makhana pouring fresh crunchy puffs into a roasted brass bowl" class="hero-stage-img hero-img-pouring" width="1376" height="768" loading="eager">
+            <!-- Interactive Prompt Badge -->
+            <div class="pouch-interactive-hint">
+              <span class="hint-pulse" aria-hidden="true"></span>
+              <span class="hint-icon" aria-hidden="true">✨</span>
+              <span class="hint-text"><strong>Hover or Tap Packet</strong> to pour fresh crunch!</span>
+            </div>
 
-              <!-- Ambient Vignette & Lighting -->
-              <div class="hero-stage-vignette" aria-hidden="true"></div>
-
-              <!-- Interactive Prompt Badge -->
-              <div class="pouch-interactive-hint">
-                <span class="hint-pulse" aria-hidden="true"></span>
-                <span class="hint-icon" aria-hidden="true">✨</span>
-                <span class="hint-text"><strong>Hover or Tap</strong> to pour fresh crunch!</span>
+            <!-- Pouch & Bowl Stage Wrapper -->
+            <div class="pouch-pour-wrapper">
+              <div class="makhana-pouch" id="makhana-packet">
+                <img src="assets/pouch-realistic.png" alt="Prishka Annam Premium Bihar Makhana Pouch" class="pouch-photo-img" width="280" height="296">
               </div>
 
-              <!-- Floating Quality Badges -->
-              <div class="showcase-badge badge-quality" aria-label="100% Pure Bihar Origin">
-                <span class="badge-sub">100% PURE</span>
-                <span class="badge-main">BIHAR</span>
-                <span class="badge-sub">HARVEST</span>
-              </div>
+              <!-- Real-time 60fps Physics-driven Pouring Canvas -->
+              <canvas id="pour-canvas" class="pour-canvas" aria-hidden="true"></canvas>
 
-              <div class="showcase-badge badge-favorite" aria-label="Daily Snacking Favorite">
-                <span class="badge-sub">DAILY SNACK</span>
-                <span class="badge-main">CRUNCH</span>
-                <span class="badge-sub">FAVORITE!</span>
+              <!-- Ghee Roasted Brass Bowl Target Callout -->
+              <div class="roasted-bowl-target">
+                <div class="bowl-ripple-glow" aria-hidden="true"></div>
+                <div class="bowl-tag">
+                  <span class="bowl-tag-icon">🔥</span>
+                  <span>Fresh Ghee-Roasted Crunch</span>
+                </div>
               </div>
+            </div>
 
-              <!-- Interactive Action Status Indicator -->
-              <div class="hero-pour-status-tag" aria-live="polite">
-                <span class="status-indicator-dot" aria-hidden="true"></span>
-                <span class="status-text-idle">Tabletop Rest</span>
-                <span class="status-text-pouring">🔥 Pouring Ghee-Roasted Crunch!</span>
-              </div>
+            <!-- Floating Quality Badges -->
+            <div class="showcase-badge badge-quality" aria-label="100% Pure Bihar Origin">
+              <span class="badge-sub">100% PURE</span>
+              <span class="badge-main">BIHAR</span>
+              <span class="badge-sub">HARVEST</span>
+            </div>
+
+            <div class="showcase-badge badge-favorite" aria-label="Daily Snacking Favorite">
+              <span class="badge-sub">DAILY SNACK</span>
+              <span class="badge-main">CRUNCH</span>
+              <span class="badge-sub">FAVORITE!</span>
             </div>
           </div>
         </div>

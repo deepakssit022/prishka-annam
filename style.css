@@ -478,80 +478,53 @@ h1 em {
 .hero-interactive-showcase {
   position: relative;
   inline-size: 100%;
-  max-inline-size: 34rem;
+  max-inline-size: 32rem;
+  min-block-size: 520px;
   border-radius: var(--radius-2xl);
   overflow: clip;
-  box-shadow: 0 24px 60px rgba(42, 29, 23, 0.3), 0 0 0 1.5px rgba(212, 164, 70, 0.4);
+  box-shadow: 0 24px 60px rgba(42, 29, 23, 0.28), 0 0 0 1.5px rgba(212, 164, 70, 0.35);
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   user-select: none;
   outline: none;
-  background: #23120A;
-  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
 }
 
-.hero-interactive-showcase:hover,
-.hero-interactive-showcase:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 32px 75px rgba(42, 29, 23, 0.42), 0 0 0 2px rgba(212, 164, 70, 0.65);
+.hero-interactive-showcase:hover {
+  box-shadow: 0 32px 72px rgba(42, 29, 23, 0.38), 0 0 0 2px rgba(212, 164, 70, 0.55);
 }
 
-/* Photorealistic Interactive Dual-State Stage */
-.hero-photo-stage {
-  position: relative;
-  inline-size: 100%;
-  aspect-ratio: 16 / 10;
-  min-block-size: 340px;
-  overflow: clip;
-  border-radius: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-md);
-}
-
-.hero-stage-img {
+/* Realistic Photographic Culinary Stage Backdrop */
+.showcase-stage-backdrop {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  overflow: clip;
+  border-radius: inherit;
+}
+
+.stage-bg-img {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
   object-position: center bottom;
   display: block;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
+  filter: brightness(0.96) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.hero-img-idle {
-  opacity: 1;
-  z-index: 1;
-  transform: scale(1);
+.hero-interactive-showcase:hover .stage-bg-img {
+  transform: scale(1.03);
 }
 
-.hero-img-pouring {
-  opacity: 0;
-  z-index: 2;
-  transform: scale(1.02);
-}
-
-/* Fluid transition to pouring action on Hover or Tap */
-.hero-interactive-showcase:hover .hero-img-idle,
-.hero-interactive-showcase.is-pouring .hero-img-idle {
-  opacity: 0;
-  transform: scale(0.98);
-}
-
-.hero-interactive-showcase:hover .hero-img-pouring,
-.hero-interactive-showcase.is-pouring .hero-img-pouring {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.hero-stage-vignette {
+.stage-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 35%, transparent 45%, rgba(20, 10, 5, 0.38) 100%);
-  z-index: 3;
+  background: radial-gradient(circle at 50% 25%, rgba(20, 10, 5, 0.05) 0%, rgba(20, 10, 5, 0.35) 75%, rgba(20, 10, 5, 0.65) 100%);
   pointer-events: none;
 }
 
@@ -560,23 +533,24 @@ h1 em {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 253, 249, 0.94);
+  background: rgba(255, 253, 249, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1.5px solid var(--color-gold);
   border-radius: var(--radius-pill);
-  padding: 0.38rem 1.1rem;
-  box-shadow: 0 6px 18px rgba(42, 29, 23, 0.25);
-  font-size: 0.82rem;
+  padding: 0.4rem 1.15rem;
+  box-shadow: 0 6px 18px rgba(42, 29, 23, 0.2);
+  font-size: 0.85rem;
   color: var(--color-maroon);
   position: relative;
   z-index: 5;
+  margin-block-end: 0.5rem;
   animation: hintFloat 3s ease-in-out infinite;
-  transition: transform var(--duration), box-shadow var(--duration), background var(--duration);
+  transition: transform var(--duration), box-shadow var(--duration);
 }
 
 .pouch-interactive-hint .hint-icon {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .pouch-interactive-hint .hint-pulse {
@@ -597,14 +571,124 @@ h1 em {
 
 @keyframes hintFloat {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-3px); }
+  50%      { transform: translateY(-4px); }
 }
 
 .hero-interactive-showcase:hover .pouch-interactive-hint,
 .hero-interactive-showcase.is-pouring .pouch-interactive-hint {
   transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(166, 59, 17, 0.32);
+  box-shadow: 0 8px 24px rgba(166, 59, 17, 0.28);
   background: #FFFDF9;
+}
+
+/* Wrapper containing Pouch, Pour Cascade & Bowl */
+.pouch-pour-wrapper {
+  position: relative;
+  z-index: 2;
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  margin-block-start: 0.5rem;
+}
+
+/* Realistic Makhana Pouch */
+.makhana-pouch {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: perspective(800px) rotateY(-3deg) rotateZ(-1deg);
+  transform-origin: 50% 90%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), filter 0.65s var(--ease-out);
+  will-change: transform;
+  filter: drop-shadow(0 14px 26px rgba(18, 9, 4, 0.5));
+}
+
+/* Silky smooth tilt on Hover or Active */
+.hero-interactive-showcase:hover .makhana-pouch,
+.hero-interactive-showcase.is-pouring .makhana-pouch {
+  transform: perspective(800px) rotate(-18deg) translateY(-14px) scale(1.02);
+  filter: drop-shadow(-14px 28px 40px rgba(18, 9, 4, 0.6));
+}
+
+.pouch-photo-img {
+  display: block;
+  inline-size: 16.5rem;
+  max-inline-size: 85%;
+  block-size: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+/* Real-time 60fps Physics-driven Pouring Canvas */
+.pour-canvas {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Roasted Bowl Target Callout */
+.roasted-bowl-target {
+  position: relative;
+  z-index: 4;
+  margin-block-start: -1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.bowl-ripple-glow {
+  position: absolute;
+  inset-block-start: -30px;
+  inline-size: 11rem;
+  block-size: 4.5rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(254, 221, 140, 0.45) 0%, rgba(212, 164, 70, 0.15) 50%, transparent 80%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.hero-interactive-showcase:hover .bowl-ripple-glow,
+.hero-interactive-showcase.is-pouring .bowl-ripple-glow {
+  opacity: 1;
+  animation: bowlRipple 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes bowlRipple {
+  0%   { transform: scale(0.95); opacity: 0.6; }
+  100% { transform: scale(1.08); opacity: 0.95; }
+}
+
+.bowl-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 253, 249, 0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  margin-block-start: 0.5rem;
+  transform: rotate(-1.5deg);
+}
+
+.bowl-tag-icon {
+  font-size: 0.85rem;
 }
 
 /* Floating Quality Seals */
@@ -618,7 +702,7 @@ h1 em {
   background: radial-gradient(circle, #A63B11 0%, #752308 100%);
   color: #FFFDF9;
   border: 2px solid var(--color-gold);
-  box-shadow: 0 8px 24px rgba(42, 29, 23, 0.4);
+  box-shadow: 0 8px 24px rgba(42, 29, 23, 0.35);
   text-align: center;
   padding: 0.5rem;
   z-index: 5;
@@ -642,84 +726,29 @@ h1 em {
 }
 
 .badge-quality {
-  inline-size: 4.8rem;
-  block-size: 4.8rem;
+  inline-size: 5rem;
+  block-size: 5rem;
   inset-block-start: 12%;
-  inset-inline-start: -0.75rem;
+  inset-inline-start: 0;
   transform: rotate(-10deg);
 }
 
 .badge-favorite {
-  inline-size: 5.2rem;
-  block-size: 5.2rem;
-  inset-block-end: 14%;
-  inset-inline-end: -0.75rem;
+  inline-size: 5.5rem;
+  block-size: 5.5rem;
+  inset-block-end: 18%;
+  inset-inline-end: 0;
   transform: rotate(8deg);
-}
-
-/* Interactive Action Status Pill at Bottom */
-.hero-pour-status-tag {
-  position: relative;
-  z-index: 5;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: rgba(26, 14, 8, 0.88);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 164, 70, 0.5);
-  border-radius: var(--radius-pill);
-  padding: 0.3rem 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #FFFDF9;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  pointer-events: none;
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.status-indicator-dot {
-  inline-size: 7px;
-  block-size: 7px;
-  border-radius: 50%;
-  background-color: #55B36A;
-  box-shadow: 0 0 6px #55B36A;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.status-text-idle {
-  display: inline;
-}
-
-.status-text-pouring {
-  display: none;
-  color: #FEDD8C;
-  font-weight: 700;
-}
-
-.hero-interactive-showcase:hover .status-text-idle,
-.hero-interactive-showcase.is-pouring .status-text-idle {
-  display: none;
-}
-
-.hero-interactive-showcase:hover .status-text-pouring,
-.hero-interactive-showcase.is-pouring .status-text-pouring {
-  display: inline;
-}
-
-.hero-interactive-showcase:hover .status-indicator-dot,
-.hero-interactive-showcase.is-pouring .status-indicator-dot {
-  background-color: #E85923;
-  box-shadow: 0 0 8px #E85923;
 }
 
 @media (max-width: 48rem) {
   .hero-interactive-showcase {
-    max-inline-size: 26rem;
+    max-inline-size: 24rem;
+    min-block-size: 470px;
+    padding: var(--space-md) var(--space-sm);
   }
-  .hero-photo-stage {
-    min-block-size: 280px;
-    padding: var(--space-sm);
+  .pouch-photo-img {
+    inline-size: 13.5rem;
   }
   .badge-quality,
   .badge-favorite {
