@@ -3090,6 +3090,430 @@ body.show-offer .price-save {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
+   LAB TESTING & SCIENTIFIC PURITY VERIFICATION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.lab-testing {
+  padding-block: var(--space-4xl);
+  background: linear-gradient(180deg, #F9F5EC 0%, #FFFFFF 40%, #FDFBF7 100%);
+  position: relative;
+  border-block-end: 1px solid rgba(212, 164, 70, 0.25);
+}
+
+.lab-badges-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+  margin-block-end: var(--space-3xl);
+}
+
+.lab-badge-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  background: #FFFFFF;
+  border: 1px solid rgba(212, 164, 70, 0.35);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: 0 4px 16px rgba(170, 59, 16, 0.04);
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
+}
+
+.lab-badge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(170, 59, 16, 0.08);
+  border-color: var(--color-gold);
+}
+
+.lab-badge-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-block-start: 0.15rem;
+}
+
+.lab-badge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.lab-badge-org {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-maroon);
+}
+
+.lab-badge-spec {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.lab-badge-report {
+  font-size: 0.78rem;
+  color: var(--color-rust);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  margin-block-start: 0.2rem;
+}
+
+/* 4 Highlights Grid */
+.lab-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-block-end: var(--space-3xl);
+}
+
+.lab-highlight-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(212, 164, 70, 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
+}
+
+.lab-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(170, 59, 16, 0.35);
+}
+
+.highlight-badge-top {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.highlight-badge--green {
+  background: rgba(30, 78, 43, 0.12);
+  color: var(--color-forest);
+  border: 1px solid rgba(30, 78, 43, 0.25);
+}
+
+.highlight-badge--gold {
+  background: rgba(212, 164, 70, 0.15);
+  color: #8C6615;
+  border: 1px solid rgba(212, 164, 70, 0.3);
+}
+
+.highlight-badge--rust {
+  background: rgba(170, 59, 16, 0.12);
+  color: var(--color-rust);
+  border: 1px solid rgba(170, 59, 16, 0.25);
+}
+
+.highlight-icon {
+  font-size: 2.2rem;
+  margin-block-end: var(--space-sm);
+}
+
+.lab-highlight-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-maroon);
+  margin-block-end: var(--space-xs);
+  line-height: 1.3;
+}
+
+.lab-highlight-card p {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  flex-grow: 1;
+  margin-block-end: var(--space-md);
+}
+
+.highlight-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+  padding-block-start: 0.6rem;
+}
+
+/* Lab Data Showcase (Nutrition + Tabs) */
+.lab-data-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  margin-block-end: var(--space-3xl);
+}
+
+@media (max-width: 64rem) {
+  .lab-data-showcase {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* Nutrition Hero Card */
+.nutrition-hero-card {
+  background: #FFFFFF;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 12px 36px rgba(170, 59, 16, 0.06);
+}
+
+.nutrition-header {
+  border-bottom: 2px solid rgba(212, 164, 70, 0.25);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.nutrition-kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-rust);
+  margin-bottom: 0.25rem;
+}
+
+.nutrition-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-maroon);
+  margin: 0;
+}
+
+.nutrition-header h3 small {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.nutrition-tested-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.nutrition-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 32rem) {
+  .nutrition-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-cell {
+  background: var(--color-cream);
+  border: 1px solid rgba(212, 164, 70, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-cell--highlight {
+  background: linear-gradient(135deg, rgba(170, 59, 16, 0.08) 0%, rgba(212, 164, 70, 0.15) 100%);
+  border-color: rgba(170, 59, 16, 0.3);
+}
+
+.stat-cell--mineral {
+  background: rgba(30, 78, 43, 0.05);
+  border-color: rgba(30, 78, 43, 0.2);
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  line-height: 1.1;
+}
+
+.stat-number small {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-rust);
+  margin-inline-start: 0.15rem;
+}
+
+.stat-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 0.25rem;
+}
+
+.stat-desc {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
+.nutrition-footer-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  background: rgba(30, 78, 43, 0.06);
+  border: 1px solid rgba(30, 78, 43, 0.25);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-size: 0.82rem;
+  color: var(--color-forest);
+  line-height: 1.5;
+}
+
+.nutrition-footer-note .veg-symbol-box {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Lab Tabs */
+.lab-tabs-container {
+  background: #FFFFFF;
+  border: 1px solid rgba(212, 164, 70, 0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.lab-tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.lab-tab-btn {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease-out);
+}
+
+.lab-tab-btn:hover {
+  background: var(--color-cream);
+  color: var(--color-maroon);
+}
+
+.lab-tab-btn.active {
+  background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-rust) 100%);
+  color: #FFFFFF;
+  border-color: var(--color-rust);
+  box-shadow: 0 4px 12px rgba(170, 59, 16, 0.2);
+}
+
+.lab-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: var(--space-sm);
+}
+
+.lab-data-table th {
+  background: var(--color-cream);
+  color: var(--color-maroon);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 2px solid rgba(212, 164, 70, 0.35);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.lab-data-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.lab-data-table tbody tr:hover {
+  background: rgba(253, 251, 247, 0.8);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.status-pill--pass {
+  background: rgba(30, 78, 43, 0.1);
+  color: var(--color-forest);
+  border: 1px solid rgba(30, 78, 43, 0.25);
+}
+
+.table-caption {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 0;
+  padding-top: 0.4rem;
+}
+
+/* Bottom CTA Bar */
+.lab-report-cta-bar {
+  background: linear-gradient(135deg, #1E4E2B 0%, #15371E 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  box-shadow: 0 10px 30px rgba(30, 78, 43, 0.2);
+}
+
+@media (max-width: 48rem) {
+  .lab-report-cta-bar {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
+  }
+}
+
+.lab-cta-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #FFF9F2;
+  margin: 0 0 0.35rem 0;
+}
+
+.lab-cta-content p {
+  font-size: 0.9rem;
+  color: rgba(255, 249, 242, 0.8);
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
    SCROLL ANIMATIONS (Progressive Enhancement)
    ══════════════════════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: no-preference) {

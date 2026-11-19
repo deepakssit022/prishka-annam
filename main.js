@@ -418,6 +418,39 @@
     });
   }
 
+  // ── LAB REPORT TABS SWITCHER ──────────────────────────────────────────────
+  const labTabBtns = document.querySelectorAll('.lab-tab-btn');
+  const labTabPanels = document.querySelectorAll('.lab-tab-panel');
+
+  if (labTabBtns.length && labTabPanels.length) {
+    labTabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+
+        // Deactivate all buttons
+        labTabBtns.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        // Hide all panels
+        labTabPanels.forEach((p) => {
+          p.classList.remove('active');
+          p.hidden = true;
+        });
+
+        // Activate selected button & panel
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const activePanel = document.getElementById(targetId);
+        if (activePanel) {
+          activePanel.classList.add('active');
+          activePanel.hidden = false;
+        }
+      });
+    });
+  }
+
   // ── SMOOTH SCROLL for anchor links (progressive enhancement) ──────────────
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
