@@ -1326,6 +1326,285 @@ h1 em {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
+   WHY PRISHKA ANNAM — HOW WE ARE DIFFERENT
+   ══════════════════════════════════════════════════════════════════════════════ */
+.why-us {
+  padding-block: var(--space-3xl);
+  background: #FAF5EE;
+  position: relative;
+  border-block-end: 1px solid var(--color-border);
+}
+
+.why-us .section-header {
+  max-inline-size: 780px;
+  margin-inline: auto;
+  margin-block-end: var(--space-2xl);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: stretch;
+  margin-block-end: var(--space-2xl);
+}
+
+.comparison-card {
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.comparison-card--market {
+  background: #ffffff;
+  border: 1.5px dashed rgba(160, 140, 120, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.comparison-badge--market {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8A5A4A;
+  background: rgba(138, 90, 74, 0.1);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  margin-block-end: var(--space-xs);
+}
+
+.comparison-card--prishka {
+  background: #ffffff;
+  border: 2.5px solid var(--color-gold);
+  box-shadow: 0 16px 40px rgba(170, 59, 16, 0.12);
+  position: relative;
+}
+
+.comparison-ribbon {
+  position: absolute;
+  inset-block-start: -14px;
+  inset-inline-end: 1.5rem;
+  background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-gold) 100%);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 1.25rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(170, 59, 16, 0.35);
+  z-index: 2;
+}
+
+.comparison-badge--prishka {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-green);
+  background: rgba(30, 78, 43, 0.1);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  margin-block-end: var(--space-xs);
+}
+
+.comparison-card-header {
+  margin-block-end: var(--space-lg);
+  padding-block-end: var(--space-md);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.comparison-card-header h3 {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  margin-block: 0.25rem;
+}
+
+.comparison-card-header p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex-grow: 1;
+}
+
+.comparison-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-xs) 0;
+}
+
+.comp-icon {
+  inline-size: 28px;
+  block-size: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-block-start: 2px;
+}
+
+.comparison-item--bad .comp-icon {
+  background: rgba(197, 48, 48, 0.12);
+  color: #C53030;
+}
+
+.comparison-item--good .comp-icon {
+  background: rgba(30, 78, 43, 0.12);
+  color: var(--color-green);
+}
+
+.comp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.comp-content strong {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.comparison-item--good .comp-content strong {
+  color: var(--color-maroon);
+}
+
+.comp-content span {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* 4 Trust Pillars */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-block: var(--space-2xl);
+}
+
+.pillar-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: transform var(--duration) var(--ease-out),
+              box-shadow var(--duration) var(--ease-out),
+              border-color var(--duration) var(--ease-out);
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(74, 30, 16, 0.09);
+  border-color: rgba(212, 164, 70, 0.5);
+}
+
+.pillar-icon {
+  inline-size: 52px;
+  block-size: 52px;
+  margin-inline: auto;
+  margin-block-end: var(--space-sm);
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFF4E5 0%, #F5E5D0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  border: 1px solid rgba(212, 164, 70, 0.3);
+}
+
+.pillar-card h4 {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  color: var(--color-maroon);
+  margin-block-end: 0.35rem;
+  font-weight: 700;
+}
+
+.pillar-card p {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Why Us CTA Strip */
+.why-us-cta-strip {
+  background: linear-gradient(135deg, #FFF9F2 0%, #F5EAE0 100%);
+  border: 1px solid rgba(212, 164, 70, 0.4);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  box-shadow: 0 6px 20px rgba(74, 30, 16, 0.05);
+}
+
+.why-us-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.why-us-cta-text strong {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  color: var(--color-maroon);
+}
+
+.why-us-cta-text span {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 64rem) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 48rem) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-us-cta-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
+  }
+  .why-us-cta-strip .btn {
+    inline-size: 100%;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
    PRODUCT CATALOG & AUTHENTIC FLYER PRICING BOARD
    ══════════════════════════════════════════════════════════════════════════════ */
 .catalog {
